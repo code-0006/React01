@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Happy Moon Decoration | அலங்கரி. கொண்டாடு. பிரகாசி.</title>
+<meta name="description" content="திருமணம், பிறந்தநாள், பள்ளி விழா, கோயில் விழா, வீட்டு நிகழ்வுகள் — அனைத்திலும் அழகான அலங்காரம். கைதடி வடக்கு.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500&family=Dancing+Script:wght@600;700&family=Poppins:wght@300;400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          cream: '#FBF3E7',
+          ink: '#1A140F',
+          night: '#120E0A',
+          gold: { DEFAULT:'#C9973F', light:'#E4C888', dark:'#9C7326' },
+          rose: { DEFAULT:'#C13F6B', light:'#E8A0B4', deep:'#8F2A4C' },
+        },
+        fontFamily: {
+          display: ['"Playfair Display"','serif'],
+          script: ['"Dancing Script"','cursive'],
+          ta: ['"Noto Sans Tamil"','sans-serif'],
+          ui: ['Poppins','sans-serif'],
+        },
+        boxShadow: {
+          glow: '0 0 40px rgba(201,151,63,0.35)',
+          goldsm: '0 0 18px rgba(201,151,63,0.55)',
+        }
+      }
+    }
+  }
+</script>
+
+<style>
+  html { scroll-behavior: smooth; overflow-x: hidden; width: 100%; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  body { font-family: 'Noto Sans Tamil','Poppins',sans-serif; background:#FBF3E7; color:#1A140F; overflow-x:hidden; width:100%; max-width:100vw; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  h1,h2,h3,h4,p { overflow-wrap: break-word; word-break: break-word; }
+
+  /* iOS Safari's 100vh includes the address-bar area, which can crop content on first load.
+     svh/dvh (supported iOS 15.4+) give the real visible height; vh below is just the fallback for older browsers. */
+  .hero-100 { min-height: 100vh; }
+  @supports (min-height: 100svh) { .hero-100 { min-height: 100svh; } }
+
+  /* Make the native date-picker readable on iOS (it defaults to light/system colors otherwise) */
+  input[type="date"] { color-scheme: dark; }
+  .font-en { font-family: 'Poppins', sans-serif; }
+  .brand-happy { font-family:'Playfair Display', serif; font-style:italic; }
+  .brand-moon { font-family:'Dancing Script', cursive; }
+
+  ::-webkit-scrollbar{ width:9px; }
+  ::-webkit-scrollbar-track{ background:#FBF3E7; }
+  ::-webkit-scrollbar-thumb{ background:#C9973F; border-radius:6px; }
+
+  @keyframes floatY { 0%,100%{ transform:translateY(0) rotate(var(--r,0deg)); } 50%{ transform:translateY(-22px) rotate(var(--r,0deg)); } }
+  .float { animation: floatY 6s ease-in-out infinite; }
+  .float-slow { animation: floatY 9s ease-in-out infinite; }
+  .float-fast { animation: floatY 4.2s ease-in-out infinite; }
+
+  @keyframes moonSpin3d { 0%{ transform: perspective(900px) rotateY(-14deg) rotateX(4deg);} 50%{ transform: perspective(900px) rotateY(14deg) rotateX(-2deg);} 100%{ transform: perspective(900px) rotateY(-14deg) rotateX(4deg);} }
+  .moon3d { animation: moonSpin3d 10s ease-in-out infinite; transform-style: preserve-3d; }
+
+  @keyframes ringSpinCW { from{ transform: rotate(0deg);} to{ transform: rotate(360deg);} }
+  @keyframes ringSpinCCW { from{ transform: rotate(0deg);} to{ transform: rotate(-360deg);} }
+  .ring-cw { animation: ringSpinCW 16s linear infinite; }
+  .ring-ccw { animation: ringSpinCCW 22s linear infinite; }
+
+  /* Glowing comet-trail ring (like a rotating light streak) */
+  .glow-ring {
+    border-radius: 9999px;
+    background: conic-gradient(from 0deg,
+      transparent 0deg,
+      transparent 40deg,
+      rgba(228,200,136,.15) 90deg,
+      rgba(228,200,136,.55) 140deg,
+      rgba(255,224,160,1) 168deg,
+      #fff8e6 176deg,
+      rgba(255,224,160,1) 184deg,
+      rgba(228,200,136,.55) 212deg,
+      rgba(228,200,136,.12) 260deg,
+      transparent 320deg,
+      transparent 360deg);
+    -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 3px));
+    mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 3px));
+    filter: drop-shadow(0 0 6px rgba(228,200,136,.9)) drop-shadow(0 0 16px rgba(201,151,63,.6));
+    animation: spinSlow 7s linear infinite;
+  }
+  .glow-ring.reverse { animation-direction: reverse; animation-duration: 11s; opacity: .55; }
+
+  @keyframes sparkTwinkle { 0%,100%{ opacity:.15; transform:scale(.6);} 50%{ opacity:1; transform:scale(1.3);} }
+  .spark-dot {
+    position:absolute; border-radius:9999px;
+    background:#F3DFA0;
+    box-shadow: 0 0 6px 1px rgba(228,200,136,.9);
+    animation: sparkTwinkle 2.4s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  /* Animated glowing border for cards — border shape stays fixed, only the light travels around it */
+  @property --border-angle {
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 0deg;
+  }
+  @keyframes borderAngleSpin { to { --border-angle: 360deg; } }
+  .border-glow::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 2px;
+    background: conic-gradient(from var(--border-angle),
+      transparent 0deg,
+      transparent 18deg,
+      #C9973F 55deg,
+      #FFEDB8 95deg,
+      #FF5FA8 135deg,
+      #C13F6B 165deg,
+      transparent 205deg,
+      transparent 360deg);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    filter: drop-shadow(0 0 5px rgba(255,143,190,.5)) drop-shadow(0 0 8px rgba(201,151,63,.5));
+    animation: borderAngleSpin 4.5s linear infinite;
+    pointer-events: none;
+    will-change: auto;
+  }
+  .border-glow::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    box-shadow: 0 0 22px 2px rgba(201,151,63,.16);
+    animation: glowPulse 5s ease-in-out infinite;
+    pointer-events: none;
+    z-index: -1;
+  }
+  .border-glow.slow::before { animation-duration: 7s; }
+
+  /* Compact variant for small pills/icons: thinner ring, no outer pulse (keeps things subtle & light) */
+  .border-glow.mini::before { padding: 1.5px; filter: drop-shadow(0 0 3px rgba(255,143,190,.45)) drop-shadow(0 0 5px rgba(201,151,63,.45)); animation-duration: 3.8s; }
+  .border-glow.mini::after { display: none; }
+
+  /* Cream/champagne tone — for outline buttons on dark backgrounds */
+  .border-glow.tone-cream::before {
+    background: conic-gradient(from var(--border-angle),
+      transparent 0deg, transparent 18deg,
+      #E4C888 55deg, #FFFBF0 95deg, #E8A0B4 135deg, #C9973F 165deg,
+      transparent 205deg, transparent 360deg);
+    filter: drop-shadow(0 0 4px rgba(228,200,136,.55)) drop-shadow(0 0 7px rgba(232,160,180,.4));
+  }
+  .border-glow.tone-cream::after { box-shadow: 0 0 18px 2px rgba(228,200,136,.18); }
+
+  /* WhatsApp-green tone — for WhatsApp CTA / floating button */
+  .border-glow.tone-whatsapp::before {
+    background: conic-gradient(from var(--border-angle),
+      transparent 0deg, transparent 18deg,
+      #25D366 55deg, #C7FFDD 95deg, #E4C888 135deg, #159848 165deg,
+      transparent 205deg, transparent 360deg);
+    filter: drop-shadow(0 0 4px rgba(37,211,102,.6)) drop-shadow(0 0 6px rgba(228,200,136,.35));
+  }
+  .border-glow.tone-whatsapp::after { box-shadow: 0 0 18px 2px rgba(37,211,102,.2); }
+
+  /* Facebook-blue tone */
+  .border-glow.tone-facebook::before {
+    background: conic-gradient(from var(--border-angle),
+      transparent 0deg, transparent 18deg,
+      #1877F2 55deg, #A9D2FF 95deg, #E4C888 135deg, #0B57D0 165deg,
+      transparent 205deg, transparent 360deg);
+    filter: drop-shadow(0 0 4px rgba(24,119,242,.6)) drop-shadow(0 0 6px rgba(228,200,136,.3));
+  }
+  .border-glow.tone-facebook::after { box-shadow: 0 0 18px 2px rgba(24,119,242,.2); }
+
+  /* Instagram gradient tone */
+  .border-glow.tone-instagram::before {
+    background: conic-gradient(from var(--border-angle),
+      transparent 0deg, transparent 18deg,
+      #f09433 50deg, #dc2743 90deg, #bc1888 130deg, #E4C888 165deg,
+      transparent 205deg, transparent 360deg);
+    filter: drop-shadow(0 0 4px rgba(220,39,67,.55)) drop-shadow(0 0 6px rgba(228,200,136,.35));
+  }
+  .border-glow.tone-instagram::after { box-shadow: 0 0 18px 2px rgba(220,39,67,.2); }
+
+  /* YouTube-red tone */
+  .border-glow.tone-youtube::before {
+    background: conic-gradient(from var(--border-angle),
+      transparent 0deg, transparent 18deg,
+      #FF0000 55deg, #FFB3B3 95deg, #E4C888 135deg, #C40000 165deg,
+      transparent 205deg, transparent 360deg);
+    filter: drop-shadow(0 0 4px rgba(255,0,0,.55)) drop-shadow(0 0 6px rgba(228,200,136,.3));
+  }
+  .border-glow.tone-youtube::after { box-shadow: 0 0 18px 2px rgba(255,0,0,.2); }
+
+  /* TikTok cyan/rose tone */
+  .border-glow.tone-tiktok::before {
+    background: conic-gradient(from var(--border-angle),
+      transparent 0deg, transparent 18deg,
+      #69C9D0 55deg, #FFFFFF 95deg, #EE1D52 135deg, #69C9D0 165deg,
+      transparent 205deg, transparent 360deg);
+    filter: drop-shadow(0 0 4px rgba(238,29,82,.5)) drop-shadow(0 0 6px rgba(105,201,208,.5));
+  }
+  .border-glow.tone-tiktok::after { box-shadow: 0 0 18px 2px rgba(105,201,208,.2); }
+
+  @keyframes orbitSpin { from{ transform: translate(-50%,-50%) rotate(0deg) translateX(var(--orbit-r,95px)) rotate(0deg);} to{ transform: translate(-50%,-50%) rotate(360deg) translateX(var(--orbit-r,95px)) rotate(-360deg);} }
+  .orbit-dot { position:absolute; top:50%; left:50%; animation: orbitSpin 7s linear infinite; }
+
+  @keyframes badgeDepth { 0%,100%{ transform: perspective(1000px) rotateY(-10deg) rotateX(6deg) translateZ(0px); } 50%{ transform: perspective(1000px) rotateY(10deg) rotateX(-4deg) translateZ(18px); } }
+  .badge-depth { animation: badgeDepth 8s ease-in-out infinite; transform-style: preserve-3d; }
+
+  @keyframes flipIn3d { from{ opacity:0; transform: perspective(1000px) rotateY(-38deg) translateY(24px) scale(.94); } to{ opacity:1; transform: perspective(1000px) rotateY(0) translateY(0) scale(1); } }
+  .reveal-io.flip3d.reveal { animation: flipIn3d 1s cubic-bezier(.2,.7,.2,1) both; }
+
+  @keyframes spinSlow { from{ transform: rotate(0deg);} to{ transform: rotate(360deg);} }
+  .spin-slow { animation: spinSlow 26s linear infinite; }
+
+  @keyframes bob3d { 0%,100%{ transform: perspective(600px) rotateX(0deg) translateY(0);} 50%{ transform: perspective(600px) rotateX(8deg) translateY(-10px);} }
+  .bob3d { animation: bob3d 5s ease-in-out infinite; transform-style: preserve-3d; }
+
+  @keyframes glowPulse { 0%,100%{ box-shadow:0 0 60px 10px rgba(201,151,63,.35), 0 0 120px 40px rgba(193,63,107,.12);} 50%{ box-shadow:0 0 90px 20px rgba(201,151,63,.55), 0 0 160px 60px rgba(193,63,107,.2);} }
+  .moon-glow { animation: glowPulse 5s ease-in-out infinite; }
+  .moon-glow.badge-depth { animation: glowPulse 5s ease-in-out infinite, badgeDepth 8s ease-in-out infinite; }
+
+  @keyframes shine { 0%{ background-position:0% 50%;} 100%{ background-position:200% 50%;} }
+  .gold-shine {
+    background: linear-gradient(100deg,#9C7326 0%,#E4C888 25%,#C9973F 45%,#E4C888 65%,#9C7326 100%);
+    background-size: 250% auto;
+    -webkit-background-clip: text; background-clip:text; color:transparent;
+    animation: shine 6s linear infinite;
+  }
+
+  @keyframes riseUp { from{ opacity:0; transform:translateY(36px);} to{ opacity:1; transform:translateY(0);} }
+  .reveal-io { opacity:0; }
+  .reveal-io.reveal { opacity:1; animation: riseUp .9s cubic-bezier(.2,.7,.2,1) both; }
+
+  .tilt-card { transition: transform .35s ease, box-shadow .35s ease; transform-style: preserve-3d; }
+
+  .divider-moon { width:64px; height:64px; border-radius:9999px; background:#1A140F;
+    box-shadow: inset -18px -6px 0 0 #FBF3E7; }
+
+  .btn-gold {
+    background: linear-gradient(120deg,#9C7326,#E4C888 45%,#C9973F);
+    background-size: 200% auto; transition: background-position .5s ease, transform .25s ease;
+  }
+  .btn-gold:hover { background-position: right center; transform: translateY(-2px); }
+
+  .gallery-masonry { column-count: 2; column-gap: 8px; transition: opacity .25s ease, transform .25s ease; }
+  @media (min-width: 640px){ .gallery-masonry{ column-count: 2; column-gap: 14px; } }
+  @media (min-width: 1024px){ .gallery-masonry{ column-count: 3; column-gap: 14px; } }
+  .gallery-masonry.switching { opacity: 0; transform: scale(.98); }
+
+  .gitem {
+    break-inside: avoid;
+    margin-bottom: 8px;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    background: linear-gradient(110deg, rgba(201,151,63,.12) 8%, rgba(201,151,63,.22) 18%, rgba(201,151,63,.12) 33%);
+    background-size: 200% 100%;
+    animation: shimmerLoad 1.6s ease-in-out infinite;
+    opacity: 0;
+    scale: .96;
+    translate: 0 16px;
+    transition: opacity .55s cubic-bezier(.2,.8,.2,1) var(--stagger,0s),
+                scale .3s cubic-bezier(.2,.8,.2,1),
+                translate .55s cubic-bezier(.2,.8,.2,1) var(--stagger,0s),
+                box-shadow .3s ease,
+                transform .35s ease;
+    box-shadow: 0 1px 3px rgba(26,20,15,.06);
+  }
+  @media (min-width: 640px){ .gitem{ margin-bottom: 14px; border-radius: 16px; } }
+  .gitem.in-view { opacity: 1; scale: 1; translate: 0 0; }
+  .gitem.media-loaded { animation: none; background: none; }
+  .gitem:active { scale: .95; }
+  .gitem:hover { box-shadow: 0 10px 24px rgba(26,20,15,.16); }
+  .gitem img, .gitem video { width:100%; display:block; transition: transform .6s ease, opacity .4s ease; }
+  .gitem:hover img, .gitem:hover video { transform: scale(1.07); }
+  @keyframes shimmerLoad { 0%{ background-position:200% 0; } 100%{ background-position:-200% 0; } }
+
+  /* Scroll to top button */
+  @keyframes popIn { 0%{ opacity:0; scale:.4; translate:0 20px; } 60%{ opacity:1; scale:1.08; translate:0 -3px; } 100%{ opacity:1; scale:1; translate:0 0; } }
+  .scroll-top-btn {
+    opacity: 0;
+    scale: .4;
+    translate: 0 20px;
+    pointer-events: none;
+    transition: opacity .3s ease, scale .3s cubic-bezier(.2,.8,.2,1), translate .3s cubic-bezier(.2,.8,.2,1), box-shadow .3s ease, background .3s ease;
+  }
+  .scroll-top-btn.show {
+    opacity: 1;
+    scale: 1;
+    translate: 0 0;
+    pointer-events: auto;
+    animation: popIn .5s cubic-bezier(.2,.8,.2,1);
+  }
+  .scroll-top-btn:hover { background:#241A12; box-shadow: 0 0 18px rgba(201,151,63,.5); translate: 0 -3px; }
+  .scroll-top-btn:active { scale: .9; }
+
+  .call-icon-btn { transition: transform .3s ease, filter .3s ease; }
+  .call-icon-btn:hover { transform: scale(1.08); filter: drop-shadow(0 0 8px rgba(34,197,94,.5)); }
+  .pin-icon-btn { transition: transform .3s ease, filter .3s ease; }
+  .pin-icon-btn:hover { transform: scale(1.08); filter: drop-shadow(0 0 8px rgba(229,57,53,.55)); }
+  .chat-icon-btn { transition: transform .3s ease, filter .3s ease; }
+  .chat-icon-btn:hover { transform: scale(1.08); filter: drop-shadow(0 0 8px rgba(34,197,94,.5)); }
+
+  .nav-link { position:relative; }
+  .nav-link::after{ content:""; position:absolute; left:0; bottom:-4px; width:0; height:2px; background:#C9973F; transition:width .3s ease; }
+  .nav-link:hover::after{ width:100%; }
+
+  #starfield-hero, #starfield-contact { position:absolute; inset:0; width:100%; height:100%; }
+
+  .filter-btn { font-family:'Poppins',sans-serif; }
+  .filter-btn.active { background:#1A140F; color:#FBF3E7; border-color:#1A140F; box-shadow:0 0 18px rgba(201,151,63,.55); }
+  .filter-btn:not(.active) { background:transparent; color:rgba(26,20,15,.7); border-color:rgba(26,20,15,.2); }
+  .filter-btn:not(.active):hover { border-color:#C9973F; color:#1A140F; }
+
+  #home { padding-bottom: 4rem; }
+  @media (min-width: 640px){ #home { padding-bottom: 0; } }
+
+  /* Marquee */
+  .marquee-section{
+    overflow:hidden;
+    position:relative;
+    background:linear-gradient(90deg,#9C7326,#C9973F,#E4C888,#C9973F,#9C7326);
+    background-size:200% auto;
+    animation: shine 8s linear infinite;
+    padding:14px 0;
+    box-shadow: 0 4px 24px rgba(201,151,63,.35), inset 0 1px 0 rgba(255,255,255,.25);
+    border-top:1px solid rgba(26,20,15,.15);
+    border-bottom:1px solid rgba(26,20,15,.15);
+  }
+  .marquee-track{
+    display:flex;
+    align-items:center;
+    gap:40px;
+    animation: marquee 24s linear infinite;
+    white-space:nowrap;
+    width:max-content;
+  }
+  .marquee-section:hover .marquee-track{ animation-play-state:paused; }
+  .marquee-track span{
+    font-family:'Poppins',sans-serif;
+    font-size:.8rem;
+    font-weight:700;
+    color:#1A140F;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    transition: transform .3s ease, color .3s ease;
+    display:inline-block;
+  }
+  .marquee-track span:hover{ transform: perspective(300px) translateZ(10px) scale(1.12); color:#8F2A4C; }
+  @keyframes marquee{ 0%{ transform:translateX(0); } 100%{ transform:translateX(-50%); } }
+
+  /* Social links */
+  .social-link{
+    display:flex; align-items:center; justify-content:center;
+    width:44px; height:44px; border-radius:9999px;
+    background:rgba(251,243,231,0.06);
+    border:1px solid rgba(201,151,63,0.3);
+    transition: transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s ease, border-color .35s ease, background .35s ease;
+    transform-style: preserve-3d;
+  }
+  .social-link:hover{
+    transform: perspective(500px) translateY(-6px) rotateY(360deg) scale(1.08);
+    border-color: rgba(201,151,63,0.8);
+    background: rgba(251,243,231,0.12);
+    box-shadow: 0 10px 24px rgba(201,151,63,.35);
+  }
+</style>
+</head>
+<body class="bg-cream">
+
+<!-- ============ NAVBAR ============ -->
+<header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-transparent py-4">
+  <div class="max-w-7xl mx-auto px-5 md:px-10 flex items-center justify-between">
+    <a href="#home" class="flex items-center gap-2.5">
+      <img src="logo3.png" alt="Happy Moon Decoration" class="h-12 w-12 rounded-full object-cover shadow-goldsm shrink-0" onerror="logoFallback(this,'HM')">
+      <span id="navBrand" class="font-ui font-semibold tracking-wide text-cream leading-tight">
+        <span class="brand-happy text-lg align-middle">Happy</span> <span class="brand-moon text-xl text-rose align-middle">Moon</span>
+      </span>
+    </a>
+    <nav class="hidden md:flex gap-8 font-ui text-sm" id="navLinks">
+      <a href="#home" class="nav-link">முகப்பு</a>
+      <a href="#about" class="nav-link">எங்களை பற்றி</a>
+      <a href="#services" class="nav-link">சேவைகள்</a>
+      <a href="#gallery" class="nav-link">படங்கள்</a>
+      <a href="#contact" class="nav-link">தொடர்பு</a>
+    </nav>
+    <a href="https://wa.me/94743745875" target="_blank" rel="noopener"
+       class="hidden md:inline-block btn-gold text-ink font-ui font-semibold text-sm px-5 py-2.5 rounded-full shadow-goldsm">
+      WhatsApp முன்பதிவு
+    </a>
+    <button id="menuBtn" class="md:hidden text-2xl text-cream">☰</button>
+  </div>
+  <div id="mobileMenu" class="hidden md:hidden bg-cream border-t border-gold/30 mt-3 px-6 py-5 flex flex-col gap-4 font-ui">
+    <a href="#home" class="text-ink text-base">முகப்பு</a>
+    <a href="#about" class="text-ink text-base">எங்களை பற்றி</a>
+    <a href="#services" class="text-ink text-base">சேவைகள்</a>
+    <a href="#gallery" class="text-ink text-base">படங்கள்</a>
+    <a href="#contact" class="text-ink text-base">தொடர்பு</a>
+    <a href="https://wa.me/94743745875" target="_blank" rel="noopener" class="btn-gold text-ink text-center font-semibold px-5 py-2.5 rounded-full mt-1">WhatsApp முன்பதிவு</a>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section id="home" class="relative hero-100 flex items-center justify-center overflow-hidden bg-gradient-to-b from-night via-[#1A140F] to-[#241A12]">
+  <canvas id="starfield-hero"></canvas>
+
+  <div class="absolute right-[6%] top-[18%] w-10 h-14 rounded-full bg-gradient-to-b from-gold-light to-gold float pointer-events-none" style="--r:-4deg"></div>
+  <div class="absolute right-[13%] top-[30%] w-8 h-11 rounded-full bg-gradient-to-b from-rose-light to-rose float-slow pointer-events-none" style="--r:5deg"></div>
+  <div class="absolute left-[8%] top-[14%] w-7 h-10 rounded-full bg-gradient-to-b from-rose-light to-rose float-fast opacity-80 pointer-events-none hidden sm:block"></div>
+
+  <div class="relative z-10 max-w-5xl mx-auto px-6 text-center pt-24">
+    <div class="mx-auto mb-8 relative w-36 h-36 md:w-56 md:h-56 flex items-center justify-center">
+      <div class="absolute inset-[-22px] glow-ring"></div>
+      <div class="absolute inset-[-8px] glow-ring reverse"></div>
+      <span class="spark-dot w-1.5 h-1.5" style="top:2%; left:60%; animation-delay:.2s"></span>
+      <span class="spark-dot w-1 h-1" style="top:14%; left:88%; animation-delay:.8s"></span>
+      <span class="spark-dot w-1.5 h-1.5" style="top:78%; left:10%; animation-delay:1.4s"></span>
+      <span class="spark-dot w-1 h-1" style="top:90%; left:70%; animation-delay:.5s"></span>
+      <span class="spark-dot w-1 h-1" style="top:50%; left:-2%; animation-delay:1.8s"></span>
+      <span class="spark-dot w-1.5 h-1.5" style="top:40%; left:102%; animation-delay:1s"></span>
+      <div class="absolute inset-0">
+        <span class="orbit-dot w-2.5 h-2.5 rounded-full bg-gold-light shadow-goldsm" style="--orbit-r:104px; animation-duration:6s"></span>
+      </div>
+      <div class="absolute inset-0">
+        <span class="orbit-dot w-2 h-2 rounded-full bg-rose-light" style="--orbit-r:104px; animation-duration:9s; animation-direction:reverse"></span>
+      </div>
+      <div class="absolute inset-0">
+        <span class="orbit-dot w-1.5 h-1.5 rounded-full bg-cream/80" style="--orbit-r:88px; animation-duration:12s"></span>
+      </div>
+      <div class="moon-glow badge-depth relative w-28 h-28 md:w-44 md:h-44 rounded-full">
+        <img src="logo3.png" alt="Happy Moon Decoration" class="w-full h-full rounded-full object-cover shadow-2xl" onerror="logoFallback(this,'HM')">
+      </div>
+    </div>
+
+    <p class="font-ui tracking-[0.3em] sm:tracking-[0.35em] text-gold-light mb-4 reveal-io" style="font-size:clamp(.6rem,2.4vw,.85rem)">DECORATE &nbsp;•&nbsp; CELEBRATE &nbsp;•&nbsp; SHINE</p>
+    <h1 class="reveal-io">
+      <span class="brand-happy gold-shine block leading-none" style="font-size:clamp(2.1rem,8.5vw,4.25rem)">Happy</span>
+      <span class="brand-moon block text-rose-light leading-none mt-1" style="font-size:clamp(2.5rem,10.5vw,5.25rem)">Moon</span>
+    </h1>
+    <p class="font-ta text-cream/85 mt-6 max-w-2xl mx-auto reveal-io" style="font-size:clamp(.9rem,3.5vw,1.15rem)">
+      ஒவ்வொரு நிகழ்வும் ஒரு கதை — அதை நாங்கள் அழகாக அலங்கரிக்கிறோம்.
+    </p>
+
+    <div class="flex flex-col sm:flex-row gap-4 justify-center mt-10 reveal-io">
+      <a href="#gallery" class="btn-gold relative text-ink font-ui font-semibold px-8 py-3.5 rounded-full shadow-goldsm">
+        எங்கள் படைப்புகளை காணுங்கள்
+      </a>
+      <a href="https://wa.me/94743745875" target="_blank" rel="noopener"
+         class="border border-cream/40 relative text-cream font-ui font-semibold px-8 py-3.5 rounded-full hover:bg-cream/10 transition flex items-center justify-center gap-2.5">
+        <svg viewBox="0 0 64 64" width="26" height="26" class="shrink-0">
+          <defs>
+            <radialGradient id="callGradMini" cx="35%" cy="28%" r="80%">
+              <stop offset="0%" stop-color="#8CF0AE"/>
+              <stop offset="45%" stop-color="#22C55E"/>
+              <stop offset="100%" stop-color="#0E7A3D"/>
+            </radialGradient>
+          </defs>
+          <circle cx="32" cy="32" r="30" fill="url(#callGradMini)"/>
+          <path d="M22 20c-1.5 1.5-2 4 0 7.5 3 5 8 10 13 13 3.5 2 6 1.5 7.5 0l2-2c1-1 1-2.5 0-3.5l-4-4c-1-1-2.5-1-3.5 0l-1.5 1.5c-2-1-4-3-5-5l1.5-1.5c1-1 1-2.5 0-3.5l-4-4c-1-1-2.5-1-3.5 0z" fill="#ffffff"/>
+        </svg>
+        <span>இப்போது தொடர்பு கொள்ளுங்கள்</span>
+      </a>
+    </div>
+  </div>
+
+  <a href="#about" class="hidden sm:block absolute bottom-8 left-1/2 -translate-x-1/2 text-cream/70 text-2xl animate-bounce">⌄</a>
+</section>
+
+<!-- ============ MARQUEE ============ -->
+<div class="marquee-section">
+  <div class="marquee-track">
+    <span>✦ திருமண அலங்காரம்</span><span>◆</span>
+    <span>✦ பிறந்தநாள் அலங்காரம்</span><span>◆</span>
+    <span>✦ பள்ளி விழா அலங்காரம்</span><span>◆</span>
+    <span>✦ கோயில் திருவிழா</span><span>◆</span>
+    <span>✦ வீட்டு நிகழ்வுகள்</span><span>◆</span>
+    <span>✦ HAPPY MOON DECORATION</span><span>◆</span>
+    <span>✦ திருமண அலங்காரம்</span><span>◆</span>
+    <span>✦ பிறந்தநாள் அலங்காரம்</span><span>◆</span>
+    <span>✦ பள்ளி விழா அலங்காரம்</span><span>◆</span>
+    <span>✦ கோயில் திருவிழா</span><span>◆</span>
+    <span>✦ வீட்டு நிகழ்வுகள்</span><span>◆</span>
+    <span>✦ HAPPY MOON DECORATION</span><span>◆</span>
+  </div>
+</div>
+
+<!-- ============ MOON DIVIDER ============ -->
+<div class="flex items-center justify-center gap-4 pt-4 pb--10 bg-cream">
+  <span class="h-px w-16 md:w-32 bg-gold/50"></span>
+  <img src="logo3.png" alt="Happy Moon Decoration" class="w-16 h-16 rounded-full object-cover shadow-goldsm" onerror="logoFallback(this,'HM')">
+  <span class="h-px w-16 md:w-32 bg-gold/50"></span>
+</div>
+
+<!-- ============ ABOUT ============ -->
+<section id="about" class="bg-cream py-4 md:py-10">
+  <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-14 items-center">
+    <div class="reveal-io flip3d space-y-5 min-w-0">
+      <div class="tilt-card bg-white rounded-3xl shadow-2xl border border-gold/20 p-4 md:p-5">
+        <img src="logo2.png" alt="Happy Moon Decoration" class="w-full h-auto object-contain rounded-xl" onerror="this.style.display='none'">
+      </div>
+      <div class="flex items-center gap-5 min-w-0">
+        <div class="tilt-card bg-white rounded-2xl shadow-lg border border-gold/20 p-3 shrink-0">
+          <img src="logo1.png" alt="Happy Moon Decoration" class="w-24 h-24 md:w-28 md:h-28 object-contain rounded-lg" onerror="this.style.display='none'">
+        </div>
+        <div class="bg-ink text-cream font-ui px-6 py-4 rounded-2xl shadow-glow flex-1 min-w-0">
+          <p class="text-3xl font-display font-bold text-gold-light">100+</p>
+          <p class="text-xs tracking-wide font-ta">நிகழ்வுகள் அலங்கரிக்கப்பட்டன</p>
+        </div>
+      </div>
+    </div>
+    <div class="reveal-io min-w-0">
+      <h2 class="font-display text-3xl md:text-4xl font-bold text-ink leading-snug mb-5">
+        அழகை உருவாக்குவதே <span class="brand-moon text-rose text-3xl sm:text-4xl md:text-5xl break-words">எங்கள்</span> பணி
+      </h2>
+      <p class="font-ta text-ink/75 leading-relaxed mb-4">
+        Happy Moon Decoration கைதடியை மையமாகக் கொண்டு இயங்கும் ஒரு அலங்கார நிறுவனம். மலர்கள், விளக்குகள்,
+        துணி அலங்காரங்கள், பலூன்கள் மற்றும் தீம் அலங்காரங்கள் மூலம் ஒவ்வொரு நிகழ்வையும் தனித்துவமாக மாற்றுகிறோம்.
+      </p>
+      <p class="font-ta text-ink/75 leading-relaxed mb-8">
+        சிறிய வீட்டு விழாவாக இருந்தாலும், பெரிய திருமண மண்டபமாக இருந்தாலும் — ஒவ்வொரு விவரத்திலும் எங்கள் அக்கறையையும்
+        கலைத்திறனையும் காணலாம்.
+      </p>
+      <div class="grid grid-cols-2 gap-4">
+        <div class="flex items-center gap-3 bg-white/60 rounded-xl px-4 py-3 border border-gold/20">
+          <span class="text-xl">🎨</span><span class="font-ta text-sm text-ink/80">தனிப்பயன் தீம்</span>
+        </div>
+        <div class="flex items-center gap-3 bg-white/60 rounded-xl px-4 py-3 border border-gold/20">
+          <span class="text-xl">⏱️</span><span class="font-ta text-sm text-ink/80">நேரம் தவறாத சேவை</span>
+        </div>
+        <div class="flex items-center gap-3 bg-white/60 rounded-xl px-4 py-3 border border-gold/20">
+          <span class="text-xl">💐</span><span class="font-ta text-sm text-ink/80">புதிய மலர் அலங்காரம்</span>
+        </div>
+        <div class="flex items-center gap-3 bg-white/60 rounded-xl px-4 py-3 border border-gold/20">
+          <span class="text-xl">✨</span><span class="font-ta text-sm text-ink/80">விலை நியாயமானது</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section id="services" class="bg-ink py-24 relative overflow-hidden">
+  <div class="absolute inset-0 opacity-20" style="background:radial-gradient(circle at 20% 20%, #C9973F, transparent 40%), radial-gradient(circle at 80% 70%, #C13F6B, transparent 40%)"></div>
+  <div class="absolute left-[12%] top-[18%] w-3 h-3 rounded-full bg-gold-light/60 float-slow hidden md:block"></div>
+  <div class="max-w-7xl mx-auto px-6 relative">
+    <div class="text-center mb-14 reveal-io">
+      <p class="font-ui tracking-[0.3em] text-gold-light text-xs mb-3">எங்கள் சேவைகள்</p>
+      <h2 class="font-display text-3xl md:text-5xl font-bold text-cream">நாங்கள் அலங்கரிக்கும் நிகழ்வுகள்</h2>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-7">
+      <div class="tilt-card reveal-io flip3d border-glow relative bg-cream/[0.06] border border-gold/25 rounded-2xl p-8 hover:border-gold/60">
+        <div class="text-4xl mb-5">💍</div>
+        <h3 class="font-display text-xl font-semibold text-gold-light mb-1">திருமணம்</h3>
+        <p class="font-en text-cream/40 text-xs tracking-widest uppercase mb-3">Wedding</p>
+        <p class="font-ta text-cream/70 text-sm leading-relaxed">மண்டப அலங்காரம், மேடை அலங்காரம், மலர் தோரணங்கள்</p>
+      </div>
+      <div class="tilt-card reveal-io flip3d border-glow relative bg-cream/[0.06] border border-gold/25 rounded-2xl p-8 hover:border-gold/60">
+        <div class="text-4xl mb-5">🎂</div>
+        <h3 class="font-display text-xl font-semibold text-gold-light mb-1">பிறந்தநாள்</h3>
+        <p class="font-en text-cream/40 text-xs tracking-widest uppercase mb-3">Birthday</p>
+        <p class="font-ta text-cream/70 text-sm leading-relaxed">பலூன் அலங்காரம், தீம் அலங்காரம், ஃபோட்டோ கார்னர்</p>
+      </div>
+      <div class="tilt-card reveal-io flip3d border-glow relative bg-cream/[0.06] border border-gold/25 rounded-2xl p-8 hover:border-gold/60">
+        <div class="text-4xl mb-5">🎓</div>
+        <h3 class="font-display text-xl font-semibold text-gold-light mb-1">பள்ளி விழா</h3>
+        <p class="font-en text-cream/40 text-xs tracking-widest uppercase mb-3">School Function</p>
+        <p class="font-ta text-cream/70 text-sm leading-relaxed">மேடை அலங்காரம், பேனர் மற்றும் ஒளி அலங்காரம்</p>
+      </div>
+      <div class="tilt-card reveal-io flip3d border-glow relative bg-cream/[0.06] border border-gold/25 rounded-2xl p-8 hover:border-gold/60">
+        <div class="text-4xl mb-5">🛕</div>
+        <h3 class="font-display text-xl font-semibold text-gold-light mb-1">கோயில் விழா</h3>
+        <p class="font-en text-cream/40 text-xs tracking-widest uppercase mb-3">Temple Function</p>
+        <p class="font-ta text-cream/70 text-sm leading-relaxed">பாரம்பரிய மலர் அலங்காரம், விளக்கு அலங்காரம்</p>
+      </div>
+      <div class="tilt-card reveal-io flip3d border-glow relative bg-cream/[0.06] border border-gold/25 rounded-2xl p-8 hover:border-gold/60">
+        <div class="text-4xl mb-5">🏠</div>
+        <h3 class="font-display text-xl font-semibold text-gold-light mb-1">வீட்டு நிகழ்வுகள்</h3>
+        <p class="font-en text-cream/40 text-xs tracking-widest uppercase mb-3">Home Events</p>
+        <p class="font-ta text-cream/70 text-sm leading-relaxed">குடும்ப விழாக்கள், சிறிய கொண்டாட்டங்கள்</p>
+      </div>
+      <div class="tilt-card reveal-io flip3d border-glow slow relative bg-gradient-to-br from-rose to-rose-deep rounded-2xl p-8 flex flex-col justify-center items-start text-cream">
+        <p class="font-display text-2xl font-bold mb-2">உங்கள் நிகழ்வை பேசலாமா?</p>
+        <p class="font-ta text-cream/85 text-sm mb-5">இலவச ஆலோசனைக்கு இன்றே தொடர்பு கொள்ளுங்கள்.</p>
+        <a href="https://wa.me/94743745875" target="_blank" rel="noopener" class="btn-gold relative text-ink font-ui font-semibold px-6 py-2.5 rounded-full text-sm">WhatsApp செய்யுங்கள்</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<section class="gallery-section bg-cream py-24" id="gallery">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-10 reveal-io">
+      <p class="font-ui tracking-[0.3em] text-rose text-xs mb-3">எங்கள் படைப்புகள்</p>
+      <h2 class="font-display text-3xl md:text-5xl font-bold text-ink mb-3">அழகின் தொகுப்பு</h2>
+      <p class="font-ta text-ink/60 max-w-xl mx-auto">ஒவ்வொரு படமும் ஒரு கதை சொல்கிறது — அழகான நிகழ்வுகளின் நினைவுகள்</p>
+    </div>
+
+    <div class="flex justify-center gap-3 mb-10 reveal-io">
+      <button class="filter-btn active text-sm px-6 py-2.5 rounded-full border transition-all" data-filter="all">அனைத்தும்</button>
+      <button class="filter-btn text-sm px-6 py-2.5 rounded-full border transition-all" data-filter="image">Images</button>
+      <button class="filter-btn text-sm px-6 py-2.5 rounded-full border transition-all" data-filter="video">Videos</button>
+    </div>
+
+    <div class="gallery-masonry" id="galleryGrid"></div>
+
+    <div class="text-center mt-6">
+      <button class="btn-gold relative text-ink font-ui font-semibold px-8 py-3 rounded-full shadow-goldsm hidden" id="loadMoreBtn">மேலும் காட்டு</button>
+      <a href="https://wa.me/94743745875" target="_blank" rel="noopener" class="font-ui text-rose font-semibold underline underline-offset-4 hidden" id="whatsappMoreLink">
+        மேலும் படங்கள் — WhatsApp-ல் தொடர்பு கொள்ளுங்கள் →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div id="lightbox" class="fixed inset-0 z-[100] bg-night/95 hidden items-center justify-center p-4 md:p-10">
+  <button id="lightboxClose" class="absolute top-5 right-6 text-cream text-3xl leading-none">✕</button>
+  <div class="max-w-4xl w-full" id="lightboxContent"></div>
+</div>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact" class="relative bg-night py-24 overflow-hidden">
+  <canvas id="starfield-contact"></canvas>
+  <div class="absolute right-[18%] bottom-[10%] w-3 h-3 rounded-full bg-rose-light/60 float hidden md:block"></div>
+  <div class="relative max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-14 items-center">
+    <div class="reveal-io min-w-0">
+      <p class="font-ui tracking-[0.3em] text-gold-light text-xs mb-3">தொடர்பு கொள்ளுங்கள்</p>
+      <h2 class="font-display text-3xl md:text-5xl font-bold text-cream mb-6 break-words">
+        உங்கள் நிகழ்வை <span class="brand-moon text-rose-light text-4xl sm:text-5xl md:text-6xl break-words">அழகாக்குவோம்</span>
+      </h2>
+      <p class="font-ta text-cream/70 leading-relaxed mb-9">
+        முன்பதிவு செய்யவும், விலை விவரம் கேட்கவும், அல்லது எங்கள் அலங்கார நிபுணருடன் நேரடியாக பேசவும் — இப்போதே தொடர்பு கொள்ளுங்கள்.
+      </p>
+      <div class="space-y-5">
+        <a href="tel:+94743745875" class="flex items-center gap-4 group">
+          <span class="w-12 h-12 rounded-full flex items-center justify-center shrink-0 call-icon-btn">
+            <svg viewBox="0 0 64 64" width="26" height="26">
+              <defs>
+                <radialGradient id="callGrad" cx="35%" cy="28%" r="80%">
+                  <stop offset="0%" stop-color="#8CF0AE"/>
+                  <stop offset="45%" stop-color="#22C55E"/>
+                  <stop offset="100%" stop-color="#0E7A3D"/>
+                </radialGradient>
+                <linearGradient id="callShine" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#ffffff" stop-opacity="0.6"/>
+                  <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+                </linearGradient>
+                <filter id="callShadow" x="-50%" y="-50%" width="200%" height="200%">
+                  <feDropShadow dx="0" dy="2.5" stdDeviation="2.5" flood-color="#0a3d1e" flood-opacity="0.4"/>
+                </filter>
+              </defs>
+              <circle cx="32" cy="32" r="30" fill="url(#callGrad)" filter="url(#callShadow)"/>
+              <ellipse cx="32" cy="15" rx="19" ry="9" fill="url(#callShine)"/>
+              <path d="M22 20c-1.5 1.5-2 4 0 7.5 3 5 8 10 13 13 3.5 2 6 1.5 7.5 0l2-2c1-1 1-2.5 0-3.5l-4-4c-1-1-2.5-1-3.5 0l-1.5 1.5c-2-1-4-3-5-5l1.5-1.5c1-1 1-2.5 0-3.5l-4-4c-1-1-2.5-1-3.5 0z" fill="#ffffff"/>
+            </svg>
+          </span>
+          <div class="min-w-0">
+            <p class="font-ui text-cream/50 text-xs">தொலைபேசி</p>
+            <p class="font-ui text-cream text-lg">0743745875 &nbsp;/&nbsp; 0741340367</p>
+          </div>
+        </a>
+        <a href="https://maps.google.com/?q=Kaithady+North,+Kaithady,+Sri+Lanka" target="_blank" rel="noopener" class="flex items-center gap-4 group">
+          <span class="w-12 h-12 rounded-full flex items-center justify-center shrink-0 pin-icon-btn">
+            <svg viewBox="0 0 64 64" width="24" height="24">
+              <defs>
+                <radialGradient id="pinBgGrad" cx="35%" cy="28%" r="80%">
+                  <stop offset="0%" stop-color="#ffffff"/>
+                  <stop offset="60%" stop-color="#F3F3F3"/>
+                  <stop offset="100%" stop-color="#D8D8D8"/>
+                </radialGradient>
+                <radialGradient id="pinGrad" cx="35%" cy="22%" r="85%">
+                  <stop offset="0%" stop-color="#FF8A80"/>
+                  <stop offset="50%" stop-color="#E53935"/>
+                  <stop offset="100%" stop-color="#A61B17"/>
+                </radialGradient>
+                <linearGradient id="pinShine" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#ffffff" stop-opacity="0.75"/>
+                  <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+                </linearGradient>
+                <filter id="pinShadow" x="-50%" y="-50%" width="200%" height="200%">
+                  <feDropShadow dx="0" dy="2.5" stdDeviation="2.5" flood-color="#00000040"/>
+                </filter>
+              </defs>
+              <circle cx="32" cy="32" r="30" fill="url(#pinBgGrad)" filter="url(#pinShadow)"/>
+              <ellipse cx="32" cy="15" rx="19" ry="9" fill="url(#pinShine)"/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M32 16c-6.6 0-12 5.3-12 12 0 8.8 12 21 12 21s12-12.2 12-21c0-6.7-5.4-12-12-12zm0 16.5a4.5 4.5 0 110-9 4.5 4.5 0 010 9z" fill="url(#pinGrad)"/>
+            </svg>
+          </span>
+          <div class="min-w-0">
+            <p class="font-ui text-cream/50 text-xs">இடம்</p>
+            <p class="font-ta text-cream text-lg">கைதடி வடக்கு, கைதடி</p>
+          </div>
+        </a>
+        <a href="https://wa.me/94743745875" target="_blank" rel="noopener" class="flex items-center gap-4 group">
+          <span class="w-12 h-12 rounded-full flex items-center justify-center shrink-0 chat-icon-btn">
+            <svg viewBox="0 0 64 64" width="25" height="25">
+              <defs>
+                <radialGradient id="chatGrad" cx="35%" cy="28%" r="80%">
+                  <stop offset="0%" stop-color="#8CF0AE"/>
+                  <stop offset="45%" stop-color="#22C55E"/>
+                  <stop offset="100%" stop-color="#0E7A3D"/>
+                </radialGradient>
+                <linearGradient id="chatShine" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#ffffff" stop-opacity="0.6"/>
+                  <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+                </linearGradient>
+                <filter id="chatShadow" x="-50%" y="-50%" width="200%" height="200%">
+                  <feDropShadow dx="0" dy="2.5" stdDeviation="2.5" flood-color="#0a3d1e" flood-opacity="0.4"/>
+                </filter>
+              </defs>
+              <circle cx="32" cy="32" r="30" fill="url(#chatGrad)" filter="url(#chatShadow)"/>
+              <ellipse cx="32" cy="15" rx="19" ry="9" fill="url(#chatShine)"/>
+              <path d="M32 17c-8.8 0-16 6.3-16 14 0 4.3 2.2 8.1 5.7 10.7-.2 2-.9 4-2.1 5.7-.3.5.1 1.1.7 1 3-.6 5.6-2 7.6-3.7 1.3.2 2.7.3 4.1.3 8.8 0 16-6.3 16-14s-7.2-14-16-14z" fill="#ffffff"/>
+            </svg>
+          </span>
+          <div class="min-w-0">
+            <p class="font-ui text-cream/50 text-xs">WhatsApp</p>
+            <p class="font-ui text-cream text-lg">உடனடி பதிலுக்கு செய்தி அனுப்புங்கள்</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="reveal-io flip3d tilt-card border-glow slow min-w-0 relative bg-cream/[0.06] border border-gold/25 rounded-3xl p-9 backdrop-blur-sm">
+      <h3 class="font-display text-2xl text-gold-light font-semibold mb-6">விரைவு முன்பதிவு படிவம்</h3>
+      <form id="bookingForm" class="space-y-4">
+        <input required name="name" placeholder="உங்கள் பெயர்" class="w-full bg-cream/10 border border-cream/20 rounded-xl px-4 py-3 text-cream placeholder-cream/40 font-ta focus:outline-none focus:border-gold">
+        <input required name="event" placeholder="நிகழ்வு வகை (திருமணம், பிறந்தநாள்...)" class="w-full bg-cream/10 border border-cream/20 rounded-xl px-4 py-3 text-cream placeholder-cream/40 font-ta focus:outline-none focus:border-gold">
+        <input name="date" type="date" class="w-full bg-cream/10 border border-cream/20 rounded-xl px-4 py-3 text-cream/80 font-ta focus:outline-none focus:border-gold">
+        <textarea name="message" rows="3" placeholder="கூடுதல் விவரங்கள்" class="w-full bg-cream/10 border border-cream/20 rounded-xl px-4 py-3 text-cream placeholder-cream/40 font-ta focus:outline-none focus:border-gold"></textarea>
+        <button type="submit" class="btn-gold relative w-full text-ink font-ui font-semibold py-3.5 rounded-xl shadow-goldsm">WhatsApp வழியாக அனுப்பு</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="bg-ink py-10 border-t border-gold/15">
+  <div class="max-w-7xl mx-auto px-6 flex flex-col items-center gap-7">
+    <div class="social-links flex items-center gap-4">
+      <a href="https://www.facebook.com/share/14aQWF2ZPpA" class="social-link border-glow mini tone-facebook relative" title="Facebook" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="#1877F2" width="20" height="20">
+          <path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.235 2.686.235v2.97h-1.513c-1.491 0-1.956.93-1.956 1.874v2.25h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/>
+        </svg>
+      </a>
+      <a href="https://wa.me/94743745875" class="social-link border-glow mini tone-whatsapp relative" title="WhatsApp" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="#25D366" width="20" height="20">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+      </a>
+      <a href="https://www.instagram.com/happymoondecorations?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw" class="social-link border-glow mini tone-instagram relative" title="Instagram" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" width="20" height="20">
+          <defs>
+            <linearGradient id="ig-grad" x1="0%" y1="100%" x2="100%" y2="0%">
+              <stop offset="0%" style="stop-color:#f09433"/>
+              <stop offset="25%" style="stop-color:#e6683c"/>
+              <stop offset="50%" style="stop-color:#dc2743"/>
+              <stop offset="75%" style="stop-color:#cc2366"/>
+              <stop offset="100%" style="stop-color:#bc1888"/>
+            </linearGradient>
+          </defs>
+          <path fill="url(#ig-grad)" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+        </svg>
+      </a>
+      <a href="#" class="social-link border-glow mini tone-youtube relative" title="YouTube" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="#FF0000" width="20" height="20">
+          <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+        </svg>
+      </a>
+      <a href="https://www.tiktok.com/@happymoondecoration2?_r=1&_t=ZS-95rk4Ugu3rI" class="social-link border-glow mini tone-tiktok relative" title="TikTok" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" width="20" height="20" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="12" fill="#000000"/>
+          <path d="M16.6 5.82s.51.5 0 0A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 0 1-2.59 2.5 2.59 2.59 0 0 1-2.59-2.59 2.59 2.59 0 0 1 2.59-2.59c.28 0 .54.04.79.1V9.68a6.08 6.08 0 0 0-.79-.05 5.68 5.68 0 0 0-5.68 5.68 5.68 5.68 0 0 0 5.68 5.68 5.68 5.68 0 0 0 5.68-5.68V8.61a7.16 7.16 0 0 0 4.27 1.38V6.9a4.28 4.28 0 0 1-2.71-1.08z"
+                fill="#69C9D0" transform="translate(-0.8, 0.5)"/>
+          <path d="M16.6 5.82s.51.5 0 0A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 0 1-2.59 2.5 2.59 2.59 0 0 1-2.59-2.59 2.59 2.59 0 0 1 2.59-2.59c.28 0 .54.04.79.1V9.68a6.08 6.08 0 0 0-.79-.05 5.68 5.68 0 0 0-5.68 5.68 5.68 5.68 0 0 0 5.68 5.68 5.68 5.68 0 0 0 5.68-5.68V8.61a7.16 7.16 0 0 0 4.27 1.38V6.9a4.28 4.28 0 0 1-2.71-1.08z"
+                fill="#EE1D52" transform="translate(0.8, -0.5)"/>
+          <path d="M16.6 5.82s.51.5 0 0A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 0 1-2.59 2.5 2.59 2.59 0 0 1-2.59-2.59 2.59 2.59 0 0 1 2.59-2.59c.28 0 .54.04.79.1V9.68a6.08 6.08 0 0 0-.79-.05 5.68 5.68 0 0 0-5.68 5.68 5.68 5.68 0 0 0 5.68 5.68 5.68 5.68 0 0 0 5.68-5.68V8.61a7.16 7.16 0 0 0 4.27 1.38V6.9a4.28 4.28 0 0 1-2.71-1.08z"
+                fill="#FFFFFF"/>
+        </svg>
+      </a>
+    </div>
+
+    <div class="w-full flex flex-col md:flex-row items-center justify-between gap-5 pt-6 border-t border-gold/10">
+      <div class="flex items-center gap-3">
+        <img src="logo3.png" class="h-11 w-11 rounded-full object-cover shrink-0" onerror="logoFallback(this,'HM')">
+        <span class="font-ui text-cream/70 text-sm leading-tight">
+          <span class="brand-happy text-gold-light align-middle">Happy</span> <span class="brand-moon text-rose-light align-middle">Moon</span> Decoration
+        </span>
+      </div>
+      <p class="font-ta text-cream/40 text-xs text-center">© 2026 Happy Moon Decoration. உங்கள் கனவை நாங்கள் நனவாக்குகிறோம்.</p>
+      <a href="https://wa.me/94743745875" target="_blank" rel="noopener" class="text-gold-light text-sm font-ui">WhatsApp: 0743745875</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Scroll to top -->
+<button id="scrollTopBtn" aria-label="Scroll to top"
+   class="scroll-top-btn fixed bottom-24 right-6 z-50 w-11 h-11 rounded-full bg-ink border border-gold/40 text-gold-light flex items-center justify-center shadow-lg">
+  <svg viewBox="0 0 24 24" class="w-5 h-5 fill-current"><path d="M12 5l-7 7h4v7h6v-7h4z"/></svg>
+</button>
+
+<!-- Floating WhatsApp -->
+<a href="https://wa.me/94743745875" target="_blank" rel="noopener"
+   class="fixed bottom-6 right-6 z-50 bg-[#25D366] w-14 h-14 rounded-full flex items-center justify-center shadow-2xl float-fast">
+  <svg viewBox="0 0 32 32" class="w-7 h-7 fill-white"><path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.386.692 4.61 1.885 6.478L4 29l7.72-1.844A11.94 11.94 0 0016.001 27C22.628 27 28 21.627 28 15S22.628 3 16.001 3zm0 21.75c-1.996 0-3.85-.58-5.41-1.575l-.388-.242-4.58 1.094 1.115-4.463-.253-.407A9.71 9.71 0 016.25 15c0-5.376 4.375-9.75 9.751-9.75S25.75 9.624 25.75 15 21.377 24.75 16.001 24.75zm5.36-7.29c-.294-.147-1.74-.858-2.01-.956-.27-.099-.466-.147-.663.147-.196.294-.759.956-.93 1.152-.171.196-.343.221-.637.074-.294-.147-1.242-.458-2.366-1.462-.874-.78-1.464-1.744-1.636-2.038-.171-.294-.018-.453.129-.6.132-.132.294-.343.441-.515.147-.171.196-.294.294-.49.098-.196.049-.368-.025-.515-.074-.147-.663-1.6-.909-2.19-.24-.577-.484-.499-.663-.508l-.564-.01c-.196 0-.515.074-.784.368-.27.294-1.03 1.007-1.03 2.456s1.054 2.848 1.201 3.045c.147.196 2.076 3.17 5.032 4.445.703.303 1.251.484 1.679.62.706.225 1.348.193 1.856.117.566-.085 1.74-.711 1.986-1.397.245-.687.245-1.275.171-1.397-.074-.123-.27-.196-.564-.343z"/></svg>
+</a>
+
+<script>
+function logoFallback(img, letters) {
+  img.onerror = null;
+  var span = document.createElement('span');
+  span.className = img.className.replace('object-cover','') + ' bg-ink border border-gold/50 text-gold-light flex items-center justify-center font-display font-bold text-sm';
+  span.textContent = letters;
+  img.replaceWith(span);
+}
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+  /* ---------- Navbar scroll state ---------- */
+  var navbar = document.getElementById('navbar');
+  var navBrand = document.getElementById('navBrand');
+  var navLinksEls = document.querySelectorAll('#navLinks .nav-link');
+  var menuBtn = document.getElementById('menuBtn');
+
+  function onScroll () {
+    if (window.scrollY > 40) {
+      navbar.classList.add('bg-cream/95','backdrop-blur-md','shadow-md','py-2');
+      navbar.classList.remove('bg-transparent','py-4');
+      navBrand.classList.remove('text-cream'); navBrand.classList.add('text-ink');
+      navLinksEls.forEach(function(a){ a.classList.remove('text-cream/90'); a.classList.add('text-ink'); });
+      menuBtn.classList.remove('text-cream'); menuBtn.classList.add('text-ink');
+    } else {
+      navbar.classList.remove('bg-cream/95','backdrop-blur-md','shadow-md','py-2');
+      navbar.classList.add('bg-transparent','py-4');
+      navBrand.classList.add('text-cream'); navBrand.classList.remove('text-ink');
+      navLinksEls.forEach(function(a){ a.classList.add('text-cream/90'); a.classList.remove('text-ink'); });
+      menuBtn.classList.add('text-cream'); menuBtn.classList.remove('text-ink');
+    }
+  }
+  window.addEventListener('scroll', onScroll);
+  onScroll();
+
+  /* ---------- Hero parallax depth ---------- */
+  var heroInner = document.querySelector('#home .relative.z-10');
+  var heroBadgeWrap = document.querySelector('#home .badge-depth');
+  window.addEventListener('scroll', function () {
+    var sy = window.scrollY;
+    if (sy < window.innerHeight) {
+      if (heroInner) heroInner.style.transform = 'translateY(' + (sy * 0.18) + 'px)';
+      if (heroBadgeWrap) heroBadgeWrap.style.filter = 'brightness(' + Math.max(0.7, 1 - sy / 900) + ')';
+    }
+  });
+
+  /* ---------- Mobile menu ---------- */
+  var mobileMenu = document.getElementById('mobileMenu');
+  menuBtn.addEventListener('click', function () {
+    mobileMenu.classList.toggle('hidden');
+    menuBtn.textContent = mobileMenu.classList.contains('hidden') ? '☰' : '✕';
+  });
+  mobileMenu.querySelectorAll('a').forEach(function (a) {
+    a.addEventListener('click', function () { mobileMenu.classList.add('hidden'); menuBtn.textContent = '☰'; });
+  });
+
+  /* ---------- Reveal on scroll ---------- */
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (en.isIntersecting) { en.target.classList.add('reveal'); io.unobserve(en.target); }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal-io').forEach(function (el) { io.observe(el); });
+
+  /* ---------- Tilt (3D hover) for service cards ---------- */
+  document.querySelectorAll('.tilt-card').forEach(function (card) {
+    card.addEventListener('mousemove', function (e) {
+      var r = card.getBoundingClientRect();
+      var x = (e.clientX - r.left) / r.width - 0.5;
+      var y = (e.clientY - r.top) / r.height - 0.5;
+      card.style.transform = 'perspective(700px) rotateY(' + (x*10) + 'deg) rotateX(' + (-y*10) + 'deg) translateY(-6px)';
+    });
+    card.addEventListener('mouseleave', function () {
+      card.style.transform = 'perspective(700px) rotateY(0) rotateX(0)';
+    });
+  });
+
+  /* ---------- Starfield canvases ---------- */
+  function initStarfield (id) {
+    var canvas = document.getElementById(id);
+    if (!canvas) return;
+    var ctx = canvas.getContext('2d');
+    var stars = [], w, h, raf;
+    function resize () {
+      w = canvas.width = canvas.offsetWidth;
+      h = canvas.height = canvas.offsetHeight;
+      var count = Math.max(20, Math.floor((w * h) / 9000));
+      stars = [];
+      for (var i = 0; i < count; i++) {
+        stars.push({
+          x: Math.random() * w, y: Math.random() * h,
+          r: Math.random() * 1.6 + 0.3,
+          s: Math.random() * 0.02 + 0.005,
+          p: Math.random() * Math.PI * 2
+        });
+      }
+    }
+    function draw () {
+      ctx.clearRect(0, 0, w, h);
+      for (var i = 0; i < stars.length; i++) {
+        var st = stars[i];
+        st.p += st.s;
+        var alpha = Math.max(0.15, Math.min(1, 0.35 + Math.sin(st.p) * 0.35 + 0.3));
+        ctx.beginPath();
+        ctx.arc(st.x, st.y, st.r, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(228,200,136,' + alpha + ')';
+        ctx.fill();
+      }
+      raf = requestAnimationFrame(draw);
+    }
+    resize(); draw();
+    window.addEventListener('resize', resize);
+  }
+  initStarfield('starfield-hero');
+  initStarfield('starfield-contact');
+
+  /* ---------- Scroll to top button ---------- */
+  var scrollTopBtn = document.getElementById('scrollTopBtn');
+  window.addEventListener('scroll', function () {
+    if (window.scrollY > 600) { scrollTopBtn.classList.add('show'); }
+    else { scrollTopBtn.classList.remove('show'); }
+  });
+  scrollTopBtn.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  /* ---------- Gallery data ---------- */
+  var galleryItems = [
+    {id:1, type:'image', src:'https://res.cloudinary.com/dy60jaw5v/image/upload/f_auto,q_auto/pexels-thevisionaryvows-32994477_pogonm'},
+    {id:2, type:'video', src:'https://res.cloudinary.com/dy60jaw5v/video/upload/v1234567890/11_frhjcv.mp4'},
+    {id:3, type:'image', src:'https://res.cloudinary.com/dy60jaw5v/image/upload/v1777280702/jon-tyson-CP68p1fZS8k-unsplash_fhcnlj.jpg'},
+    {id:4, type:'image', src:'https://res.cloudinary.com/dy60jaw5v/image/upload/v1777280699/fujiphilm-KMNZgMsedE0-unsplash_bhvqe5.jpg'},
+    {id:5, type:'video', src:'https://res.cloudinary.com/dy60jaw5v/video/upload/v1234567890/22_brqdaf.mp4'},
+    {id:6, type:'image', src:'https://res.cloudinary.com/dy60jaw5v/image/upload/v1777280693/pexels-justinagyarko-34260120_yifnvd.jpg'},
+    {id:7, type:'image', src:'https://res.cloudinary.com/dy60jaw5v/image/upload/v1777280690/shardayyy-photography-fJzmPe-a0eU-unsplash_bflhep.jpg'},
+    {id:8, type:'image', src:'https://res.cloudinary.com/dy60jaw5v/image/upload/v1777280688/pexels-vidalbalielojrfotografia-20016145_pzd1no.jpg'},
+    {id:9, type:'video', src:'https://res.cloudinary.com/dy60jaw5v/video/upload/v1234567890/33_sdvkwb.mp4'},
+    {id:10, type:'image', src:'https://res.cloudinary.com/dy60jaw5v/image/upload/v1777280686/onkar-singh-D31ZvQgI9z8-unsplash_hzrytu.jpg'},
+    {id:11, type:'image', src:'https://res.cloudinary.com/dy60jaw5v/image/upload/v1777280685/tanya-barrow-bSEPMf39pWM-unsplash_dpgacf.jpg'},
+    {id:12, type:'image', src:'https://res.cloudinary.com/dy60jaw5v/image/upload/v1777280685/pexels-luis-angel-alejos-espinoza-538962425-17840129_bvqyhr.jpg'},
+    {id:13, type:'video', src:'https://res.cloudinary.com/dy60jaw5v/video/upload/v1234567890/download_j6cinx.mp4'},
+    {id:14, type:'image', src:'https://res.cloudinary.com/dy60jaw5v/image/upload/v1777280683/ami-lisk-t-A3ogopWv8-unsplash_e9rr5c.jpg'},
+    {id:15, type:'image', src:'https://res.cloudinary.com/dy60jaw5v/image/upload/v1777280682/amish-thakkar-BEdxXAiRfRM-unsplash_popzqt.jpg'},
+    {id:16, type:'image', src:'https://res.cloudinary.com/dy60jaw5v/image/upload/v1777280678/masood-aslami-CWKjTRWcPlw-unsplash_hjrqcw.jpg'},
+    {id:17, type:'video', src:'https://res.cloudinary.com/dy60jaw5v/video/upload/v1234567890/44_vangyk.mp4'},
+    {id:18, type:'image', src:'https://res.cloudinary.com/dy60jaw5v/image/upload/v1777280672/vishnu-prasad-CFB4YIkz_lY-unsplash_na8qpt.jpg'},
+    {id:19, type:'image', src:'https://res.cloudinary.com/dy60jaw5v/image/upload/v1777280668/zain-raza-0Oo13ZSmm8o-unsplash_kjxanx.jpg'},
+    {id:20, type:'image', src:'https://res.cloudinary.com/dy60jaw5v/image/upload/v1777280663/fabio-guntur-qG2yK_iNspE-unsplash_gxna5i.jpg'},
+    {id:21, type:'image', src:'https://res.cloudinary.com/dy60jaw5v/image/upload/v1777280653/teodora-popa-K1SbgOz7QAg-unsplash_fdt4ep.jpg'},
+    {id:22, type:'image', src:'https://res.cloudinary.com/dy60jaw5v/image/upload/v1777280648/rebecca-clarke-UtEEeokBj8o-unsplash_caekoo.jpg'},
+    {id:23, type:'image', src:'https://res.cloudinary.com/dy60jaw5v/image/upload/v1777280637/photographycourse-xXKSbHqzfRQ-unsplash_udyxzs.jpg'},
+    {id:24, type:'image', src:'https://res.cloudinary.com/dy60jaw5v/image/upload/v1777280636/note-thanun-xCCWAxAzUFo-unsplash_ipt9w8.jpg'},
+    {id:25, type:'image', src:'https://res.cloudinary.com/dy60jaw5v/image/upload/v1777280627/jose-marroquin-FXtDyXJEWB4-unsplash_ccy7eu.jpg'},
+    {id:26, type:'image', src:'https://res.cloudinary.com/dy60jaw5v/image/upload/v1777280625/kinjal-sanchaniya-0MhBX-_UBLg-unsplash_1_pwgvr8.jpg'},
+    {id:27, type:'image', src:'https://res.cloudinary.com/dy60jaw5v/image/upload/v1779258811/WhatsApp_Image_2026-05-20_at_12.01.59_jrp2sy.jpg'},
+    {id:28, type:'video', src:'https://res.cloudinary.com/dy60jaw5v/video/upload/v1780944400/WhatsApp_Video_2026-06-08_at_21.59.38_ar9mam.mp4'}
+  ];
+
+  var galleryGrid = document.getElementById('galleryGrid');
+  var loadMoreBtn = document.getElementById('loadMoreBtn');
+  var whatsappMoreLink = document.getElementById('whatsappMoreLink');
+  var currentFilter = 'all';
+  var visibleCount = 12;
+
+  function buildItem (item, index) {
+    var wrap = document.createElement('div');
+    wrap.className = 'gitem';
+    wrap.dataset.cat = item.type;
+    wrap.dataset.id = item.id;
+    wrap.style.setProperty('--stagger', (Math.min(index, 10) * 45) + 'ms');
+
+    if (item.type === 'image') {
+      var img = document.createElement('img');
+      img.alt = 'Happy Moon Decoration'; img.loading = 'lazy';
+      img.addEventListener('load', function () { wrap.classList.add('media-loaded'); });
+      img.src = item.src;
+      wrap.appendChild(img);
+    } else {
+      var vwrap = document.createElement('div');
+      vwrap.className = 'relative';
+      var video = document.createElement('video');
+      video.muted = true; video.loop = true; video.playsInline = true; video.preload = 'metadata';
+      video.addEventListener('loadeddata', function () { wrap.classList.add('media-loaded'); });
+      video.src = item.src;
+      var badge = document.createElement('span');
+      badge.className = 'absolute bottom-3 left-3 flex items-center gap-1.5 bg-ink/70 text-cream text-xs font-ui px-3 py-1.5 rounded-full backdrop-blur-sm';
+      badge.innerHTML = '<svg viewBox="0 0 24 24" class="w-3 h-3 fill-current" style="color:#E4C888"><polygon points="5,3 19,12 5,21"/></svg> Video';
+      vwrap.appendChild(video); vwrap.appendChild(badge);
+      wrap.appendChild(vwrap);
+    }
+
+    wrap.addEventListener('click', function () { openLightbox(item); });
+    wrap.addEventListener('mousemove', function (e) {
+      var r = wrap.getBoundingClientRect();
+      var x = (e.clientX - r.left) / r.width - 0.5;
+      var y = (e.clientY - r.top) / r.height - 0.5;
+      wrap.style.transform = 'perspective(700px) rotateY(' + (x * 8) + 'deg) rotateX(' + (-y * 8) + 'deg)';
+    });
+    wrap.addEventListener('mouseleave', function () {
+      wrap.style.transform = 'perspective(700px) rotateY(0) rotateX(0)';
+    });
+    wrap.style.transformStyle = 'preserve-3d';
+    galleryObserver.observe(wrap);
+    return wrap;
+  }
+
+  var galleryObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (en.isIntersecting) { en.target.classList.add('in-view'); galleryObserver.unobserve(en.target); }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -20px 0px' });
+
+  function renderGallery () {
+    var filtered = galleryItems.filter(function (it) { return currentFilter === 'all' || it.type === currentFilter; });
+    var shown = filtered.slice(0, visibleCount);
+    var isFirstRender = galleryGrid.children.length === 0;
+
+    function build () {
+      galleryGrid.innerHTML = '';
+      shown.forEach(function (item, i) { galleryGrid.appendChild(buildItem(item, i)); });
+      galleryGrid.classList.remove('switching');
+      requestAnimationFrame(function () {
+        document.querySelectorAll('.gitem').forEach(function (el) {
+          if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('in-view');
+        });
+      });
+    }
+
+    if (isFirstRender) {
+      build();
+    } else {
+      galleryGrid.classList.add('switching');
+      setTimeout(build, 180);
+    }
+
+    if (visibleCount < filtered.length) {
+      loadMoreBtn.classList.remove('hidden');
+      whatsappMoreLink.classList.add('hidden');
+    } else {
+      loadMoreBtn.classList.add('hidden');
+      whatsappMoreLink.classList.remove('hidden');
+    }
+  }
+
+  document.querySelectorAll('.filter-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      document.querySelectorAll('.filter-btn').forEach(function (b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      currentFilter = btn.dataset.filter;
+      visibleCount = 12;
+      renderGallery();
+    });
+  });
+
+  loadMoreBtn.addEventListener('click', function () { visibleCount += 9; renderGallery(); });
+
+  renderGallery();
+
+  /* ---------- Lightbox ---------- */
+  var lightbox = document.getElementById('lightbox');
+  var lightboxContent = document.getElementById('lightboxContent');
+  var lightboxClose = document.getElementById('lightboxClose');
+
+  function openLightbox (item) {
+    lightboxContent.innerHTML = '';
+    if (item.type === 'image') {
+      var img = document.createElement('img');
+      img.src = item.src; img.className = 'w-full max-h-[85vh] object-contain rounded-xl';
+      lightboxContent.appendChild(img);
+    } else {
+      var video = document.createElement('video');
+      video.src = item.src; video.controls = true; video.autoplay = true;
+      video.className = 'w-full max-h-[85vh] rounded-xl';
+      lightboxContent.appendChild(video);
+    }
+    lightbox.classList.remove('hidden'); lightbox.classList.add('flex');
+  }
+  function closeLightbox () {
+    lightbox.classList.add('hidden'); lightbox.classList.remove('flex');
+    lightboxContent.innerHTML = '';
+  }
+  lightboxClose.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', function (e) { if (e.target === lightbox) closeLightbox(); });
+  window.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeLightbox(); });
+
+  /* ---------- Booking form -> WhatsApp ---------- */
+  var bookingForm = document.getElementById('bookingForm');
+  bookingForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var f = e.target;
+    var msg = 'வணக்கம், என் பெயர்: ' + f.name.value +
+      '%0Aநிகழ்வு: ' + f.event.value +
+      '%0Aதேதி: ' + f.date.value +
+      '%0Aசெய்தி: ' + f.message.value;
+    window.open('https://wa.me/94743745875?text=' + msg, '_blank');
+  });
+
+});
+</script>
+
+</body>
+</html>

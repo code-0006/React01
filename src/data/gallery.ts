@@ -1,0 +1,36 @@
+/** Preserved original Cloudinary gallery entries from the uploaded HTML. */
+export type GalleryType = 'image' | 'video';
+export type GalleryItem = { id: number; type: GalleryType; src: string; title: string; featured?: boolean; };
+
+export const galleryItems: GalleryItem[] = [
+  { id: 101, type: 'image', src: '/images/logo-showcase.webp', title: 'Happy Moon Signature Design', featured: true },
+  { id: 102, type: 'image', src: '/images/logo-crescent.webp', title: 'Moonlight & Blossoms', featured: true },
+  { id: 1, type: 'image', src: 'https://res.cloudinary.com/dy60jaw5v/image/upload/f_auto,q_auto/pexels-thevisionaryvows-32994477_pogonm', title: 'Event inspiration 01' },
+  { id: 2, type: 'video', src: 'https://res.cloudinary.com/dy60jaw5v/video/upload/v1234567890/11_frhjcv.mp4', title: 'Celebration video 02' },
+  { id: 3, type: 'image', src: 'https://res.cloudinary.com/dy60jaw5v/image/upload/v1777280702/jon-tyson-CP68p1fZS8k-unsplash_fhcnlj.jpg', title: 'Event inspiration 03' },
+  { id: 4, type: 'image', src: 'https://res.cloudinary.com/dy60jaw5v/image/upload/v1777280699/fujiphilm-KMNZgMsedE0-unsplash_bhvqe5.jpg', title: 'Event inspiration 04' },
+  { id: 5, type: 'video', src: 'https://res.cloudinary.com/dy60jaw5v/video/upload/v1234567890/22_brqdaf.mp4', title: 'Celebration video 05' },
+  { id: 6, type: 'image', src: 'https://res.cloudinary.com/dy60jaw5v/image/upload/v1777280693/pexels-justinagyarko-34260120_yifnvd.jpg', title: 'Event inspiration 06' },
+  { id: 7, type: 'image', src: 'https://res.cloudinary.com/dy60jaw5v/image/upload/v1777280690/shardayyy-photography-fJzmPe-a0eU-unsplash_bflhep.jpg', title: 'Event inspiration 07' },
+  { id: 8, type: 'image', src: 'https://res.cloudinary.com/dy60jaw5v/image/upload/v1777280688/pexels-vidalbalielojrfotografia-20016145_pzd1no.jpg', title: 'Event inspiration 08' },
+  { id: 9, type: 'video', src: 'https://res.cloudinary.com/dy60jaw5v/video/upload/v1234567890/33_sdvkwb.mp4', title: 'Celebration video 09' },
+  { id: 10, type: 'image', src: 'https://res.cloudinary.com/dy60jaw5v/image/upload/v1777280686/onkar-singh-D31ZvQgI9z8-unsplash_hzrytu.jpg', title: 'Event inspiration 10' },
+  { id: 11, type: 'image', src: 'https://res.cloudinary.com/dy60jaw5v/image/upload/v1777280685/tanya-barrow-bSEPMf39pWM-unsplash_dpgacf.jpg', title: 'Event inspiration 11' },
+  { id: 12, type: 'image', src: 'https://res.cloudinary.com/dy60jaw5v/image/upload/v1777280685/pexels-luis-angel-alejos-espinoza-538962425-17840129_bvqyhr.jpg', title: 'Event inspiration 12' },
+  { id: 13, type: 'video', src: 'https://res.cloudinary.com/dy60jaw5v/video/upload/v1234567890/download_j6cinx.mp4', title: 'Celebration video 13' },
+  { id: 14, type: 'image', src: 'https://res.cloudinary.com/dy60jaw5v/image/upload/v1777280683/ami-lisk-t-A3ogopWv8-unsplash_e9rr5c.jpg', title: 'Event inspiration 14' },
+  { id: 15, type: 'image', src: 'https://res.cloudinary.com/dy60jaw5v/image/upload/v1777280682/amish-thakkar-BEdxXAiRfRM-unsplash_popzqt.jpg', title: 'Event inspiration 15' },
+  { id: 16, type: 'image', src: 'https://res.cloudinary.com/dy60jaw5v/image/upload/v1777280678/masood-aslami-CWKjTRWcPlw-unsplash_hjrqcw.jpg', title: 'Event inspiration 16' },
+  { id: 17, type: 'video', src: 'https://res.cloudinary.com/dy60jaw5v/video/upload/v1234567890/44_vangyk.mp4', title: 'Celebration video 17' },
+  { id: 18, type: 'image', src: 'https://res.cloudinary.com/dy60jaw5v/image/upload/v1777280672/vishnu-prasad-CFB4YIkz_lY-unsplash_na8qpt.jpg', title: 'Event inspiration 18' },
+  { id: 19, type: 'image', src: 'https://res.cloudinary.com/dy60jaw5v/image/upload/v1777280668/zain-raza-0Oo13ZSmm8o-unsplash_kjxanx.jpg', title: 'Event inspiration 19' },
+  { id: 20, type: 'image', src: 'https://res.cloudinary.com/dy60jaw5v/image/upload/v1777280663/fabio-guntur-qG2yK_iNspE-unsplash_gxna5i.jpg', title: 'Event inspiration 20' },
+  { id: 21, type: 'image', src: 'https://res.cloudinary.com/dy60jaw5v/image/upload/v1777280653/teodora-popa-K1SbgOz7QAg-unsplash_fdt4ep.jpg', title: 'Event inspiration 21' },
+  { id: 22, type: 'image', src: 'https://res.cloudinary.com/dy60jaw5v/image/upload/v1777280648/rebecca-clarke-UtEEeokBj8o-unsplash_caekoo.jpg', title: 'Event inspiration 22' },
+  { id: 23, type: 'image', src: 'https://res.cloudinary.com/dy60jaw5v/image/upload/v1777280637/photographycourse-xXKSbHqzfRQ-unsplash_udyxzs.jpg', title: 'Event inspiration 23' },
+  { id: 24, type: 'image', src: 'https://res.cloudinary.com/dy60jaw5v/image/upload/v1777280636/note-thanun-xCCWAxAzUFo-unsplash_ipt9w8.jpg', title: 'Event inspiration 24' },
+  { id: 25, type: 'image', src: 'https://res.cloudinary.com/dy60jaw5v/image/upload/v1777280627/jose-marroquin-FXtDyXJEWB4-unsplash_ccy7eu.jpg', title: 'Event inspiration 25' },
+  { id: 26, type: 'image', src: 'https://res.cloudinary.com/dy60jaw5v/image/upload/v1777280625/kinjal-sanchaniya-0MhBX-_UBLg-unsplash_1_pwgvr8.jpg', title: 'Event inspiration 26' },
+  { id: 27, type: 'image', src: 'https://res.cloudinary.com/dy60jaw5v/image/upload/v1779258811/WhatsApp_Image_2026-05-20_at_12.01.59_jrp2sy.jpg', title: 'Event inspiration 27' },
+  { id: 28, type: 'video', src: 'https://res.cloudinary.com/dy60jaw5v/video/upload/v1780944400/WhatsApp_Video_2026-06-08_at_21.59.38_ar9mam.mp4', title: 'Celebration video 28' },
+];
